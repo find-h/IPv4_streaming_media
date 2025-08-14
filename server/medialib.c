@@ -28,7 +28,7 @@ struct channel_context_st
     mytbf_t *tbf;
 };
 
-static struct channel_context_st channel[MAXCHIND + 1];
+static struct channel_context_st channel[MAXCHIND + 1];//存放频道信息的结构体数组channel
 
 static struct channel_context_st *path2entry(const char* path)
 {
@@ -104,9 +104,9 @@ int mlib_getchnlist(struct mlib_listentry_st **result, int *resnum)
 
     for(int i = 0 ; i < MAXCHIND; i++)
     {
-        channel[i].chnid = -1;
+        channel[i].chnid = -1;//频道的chnid初始化为-1
     }
-    snprintf(path, PATHSIZE, "%s/*", server_conf.media_dir);
+    snprintf(path, PATHSIZE, "%s/*", server_conf.media_dir);//
     #ifdef DEBUG
         printf("current path:%s\n", path);
     #endif
